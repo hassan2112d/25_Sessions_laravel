@@ -18,6 +18,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/fetchdata',[UserController::class,'showstudents']);
+Route::get('/fetchdata',[UserController::class,'showstudents'])->name('home');
 
 Route::get('/student/{id}',[UserController::class,'singlestudents'])->name('view.student');
+
+Route::get('/add',[UserController::class , 'insert']);
+
+Route::get('/update',[UserController::class , 'update']);
+
+Route::get('/delete/{id}',[UserController::class, 'delete'])->name('deleteuser');

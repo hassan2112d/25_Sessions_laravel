@@ -35,7 +35,8 @@
                 <td>{{$users -> age }}</td>
                 
                 
-                <td><a href={{route('view.student', $users->student_id)}} class="btn btn-success btn-sm">VIEW MORE</a></td>
+                <td><a href="{{route('view.student', $users->student_id)}}" class="btn btn-success btn-sm">VIEW MORE</a></td>
+                <td><a href="{{route('deleteuser', $users->student_id)}}" class="btn btn-danger btn-sm">Delete</a></td>
             </tr>
                 
             @endforeach
