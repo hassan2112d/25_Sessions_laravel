@@ -13,14 +13,17 @@
     
     <div class="container">
       <h1>Fetching Data</h1>
-    <table class="table">
+
+      <a href= "/newusers"  class="btn btn-success btn-sm">Add Users</a>
+    <table class="table mt-4">
         <thead>
           <tr>
-            <th> Students_ID </th>
+            <th> NO </th>
             <th scope="col">Name</th>
             <th scope="col">Email</th>
-            <th scope="col">Address</th>
             <th scope="col">Age</th>
+            <th scope="col">ACTIONS</th>
+
           </tr>
         </thead>
         <tbody>
@@ -28,15 +31,15 @@
     
             <tr>
 
-                <td>{{$users -> student_id }}</td> 
+                <td>{{$users -> id }}</td> 
                 <td>{{$users -> name }}</td> 
                 <td>{{$users -> email }}</td> 
-                <td>{{$users -> address }}</td> 
                 <td>{{$users -> age }}</td>
                 
                 
-                <td><a href="{{route('view.student', $users->student_id)}}" class="btn btn-success btn-sm">VIEW MORE</a></td>
-                <td><a href="{{route('deleteuser', $users->student_id)}}" class="btn btn-danger btn-sm">Delete</a></td>
+                <td><a href="{{route('view.student', $users->id)}}" class="btn btn-success btn-sm">VIEW </a>
+                <a href="{{route('deleteuser', $users->id)}}" class="btn btn-danger btn-sm">Delete</a>
+                <a href="{{route('update.page', $users->id)}}" class="btn btn-info btn-sm">Update</a></td>
             </tr>
                 
             @endforeach

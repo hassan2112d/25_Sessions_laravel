@@ -18,43 +18,50 @@ class UserController extends Controller
 
     public function singlestudents($id){
 
-        $users = DB::table('students')->where('student_id',$id)->get();
+        $users = DB::table('students')->where('id',$id)->get();
         return view('singleuser',['data' => $users]);
     }
 
-    public function insert(){
+    public function insert(Request $req){
 
         $users = DB::table('students')->insert(
             [
-                'name' => 'Hassan',
-                'age' => 19,
-                'email' => 'h@gmail.com',
-                'address' => 'G.m parkview',
-                'city' => 'Karachi',
-                'phone' => 3149922774,
-                'password' => 123456,
+                'name' => $req->username,
+                'age' => $req->userage,
+                'email' => $req->useremail,
+                'password' => $req->userpassword ,
                 'created_at' => now(),
                 'updated_at' => now()
 
             ]
         ) ;
 
-        dd($users);
+        if($users){
+
+            return redirect()->route('home');
+        }
+        else{
+
+            echo "Error Occurred !";
+        }
     }
 
-    public function update(){
+    public function update(Request $req,$id){
 
-        $users = DB::table('students')->where('student_id', 11)->update([
+        $users = DB::table('students')->where('id', $id)->update([
 
-            'name' => 'Alii'
+            'name' => $req->username,
+            'age' => $req->userage,
+            'email' => $req->useremail,
+            'password' => $req->userpassword
         ]);
 
-        dd($users);
+        return redirect()->route('home');
     }
 
     public function delete($id){
 
-        $users = DB::table('students')->where('student_id' , $id)->delete();
+        $users = DB::table('students')->where('id' , $id)->delete();
         
 
         if($users){
@@ -68,4 +75,12 @@ class UserController extends Controller
 
        
     }
+
+    public function updatepage(string $id){
+
+        $users = DB::table('students')->find($id);
+
+        return view('updateuser',['data'=>$users]);
+    }
+
 }

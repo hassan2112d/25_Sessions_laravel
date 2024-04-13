@@ -18,12 +18,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/fetchdata',[UserController::class,'showstudents'])->name('home');
+Route::controller(UserController::class)->group(function () {
 
-Route::get('/student/{id}',[UserController::class,'singlestudents'])->name('view.student');
+    Route::get('/fetchdata', 'showstudents')->name('home');
 
-Route::get('/add',[UserController::class , 'insert']);
+    Route::get('/student/{id}', 'singlestudents')->name('view.student');
 
-Route::get('/update',[UserController::class , 'update']);
+    Route::post('/add', 'insert')->name('insertuser');
 
-Route::get('/delete/{id}',[UserController::class, 'delete'])->name('deleteuser');
+    Route::put('/update/{id}', 'update')->name('update.user');
+    Route::get('/updatepage/{id}', 'updatepage')->name('update.page');
+
+    Route::get('/delete/{id}', 'delete')->name('deleteuser');
+});
+
+
+Route::view('newusers', '/addusers');

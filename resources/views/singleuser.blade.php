@@ -16,9 +16,7 @@
 
     <h1>{{$users-> name}}</h1>
     <h1>{{$users-> age}}</h1>
-    <h1>{{$users-> address}}</h1>
-    <h1>{{$users-> phone}}</h1>
-    <h1>{{$users-> city}}</h1>
+    <h1>{{$users-> email}}</h1>
     <h1>{{$users-> password}}</h1>
       
     @endforeach
