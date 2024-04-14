@@ -8,13 +8,15 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    @vite('resources/css/app.css')
   </head>
   <body>
     
     <div class="container">
-      <h1>Fetching Data</h1>
 
-      <a href= "/newusers"  class="btn btn-success btn-sm">Add Users</a>
+      <h3 class="mt-4">Fetching Data</h3>
+
+      <a href= "/newusers"  class="btn btn-success btn-sm mt-4">Add Users</a>
     <table class="table mt-4">
         <thead>
           <tr>
@@ -47,7 +49,13 @@
           
         </tbody>
       </table>
-
+      <div>
+        {{$data->links('pagination::bootstrap-5')}}
+      </div>
+      <div>
+        Total Users : {{$data->count()}}<br>
+        Current Page : {{$data->currentpage()}}
+      </div>
     
     </div>
     <!-- Optional JavaScript -->

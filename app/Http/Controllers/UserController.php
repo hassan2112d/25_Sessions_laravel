@@ -8,7 +8,7 @@ class UserController extends Controller
 {
     public function showstudents(){
 
-        $users = DB::table('students')->get();
+        $users = DB::table('students')->Paginate(5,['*'],'page_no');
         //return $users;
         //dump($users);
 

@@ -13,18 +13,17 @@ class StudentSeeder extends Seeder
      */
     public function run(): void
     {
-
-    for($i = 1; $i<=10; $i++){
-    
-      Student::create([
-
-
-        'name' => fake()->name(),
-        'email' => fake()->unique()->email()
-      ]);
-
-
+        for ($i = 1; $i <= 10; $i++) {
+            Student::create([
+                'name' => fake()->name(),
+                'email' => fake()->unique()->email(),
+                'age' => rand(18, 30), // Generate a random age between 18 and 30
+                'password' => bcrypt('password'), // You might want to adjust this according to your requirements
+            ]);
+        }
     }
+}
+
 
         //File data Insert
         // $json = Storage::get('database/json/students.json');
@@ -48,5 +47,5 @@ class StudentSeeder extends Seeder
         //     'email'=>'a@gmail.com'
 
         // ]);
-    }
-}
+  
+
