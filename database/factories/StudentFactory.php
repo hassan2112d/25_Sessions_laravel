@@ -2,11 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Student;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Student>
- */
 class StudentFactory extends Factory
 {
     /**
@@ -17,13 +15,11 @@ class StudentFactory extends Factory
     public function definition(): array
     {
         return [
-            'name'=>fake()->name(),
-            'age'=>fake()->numberBetween(10,30),
-            'email'=>fake()->email(),
-            'address'=>fake()->address(),
-            'city'=>fake()->city(),
-            'phone'=>fake()->phoneNumber(),
-            'password'=>fake()->password()
+            'name' => $this->faker->name(),
+            'age' => $this->faker->numberBetween(10, 30),
+            'email' => $this->faker->email(),
+            'password' => $this->faker->password(),
+            'city_id' => $this->faker->numberBetween(1,9)
         ];
     }
 }

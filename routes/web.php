@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,3 +35,6 @@ Route::controller(UserController::class)->group(function () {
 
 
 Route::view('newusers', '/addusers');
+
+
+Route::get('/city',[StudentController::class,'showstudent']);
