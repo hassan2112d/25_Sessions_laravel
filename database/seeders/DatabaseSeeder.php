@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Citi;
 use App\Models\Student;
+use App\Models\teacher;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,5 +19,6 @@ class DatabaseSeeder extends Seeder
 
         Student::factory()->count(10)->create();
         Citi::factory()->count(10)->create();
+        teacher::factory()->count(5)->create();
     }
 }

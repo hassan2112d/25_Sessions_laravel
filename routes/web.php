@@ -38,3 +38,7 @@ Route::view('newusers', '/addusers');
 
 
 Route::get('/city',[StudentController::class,'showstudent']);
+
+Route::get('/uniondata',[StudentController::class,'showunion']);
+
+Route::get('/chunkmethod',[StudentController::class,'chunkdata']);
