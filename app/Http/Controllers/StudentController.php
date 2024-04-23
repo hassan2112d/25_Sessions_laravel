@@ -9,8 +9,10 @@ class StudentController extends Controller
 {
     public function showstudent(){
 
-        $student = DB::table('students')->join('citis','students.city_id','=','citis.id')->get();
+        $student = DB::table('students')->select('students.*','citis.Cities')->join('citis','students.city_id','=','citis.id')->get();
 
-        return $student;
+        return view('relational',compact('student'));
+
+        //return $student;
     }
 }
